@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* Tailwind v4 oxide scanner bug: recursive globs (**) fail on Windows
+   when the project path contains spaces. Use single-level globs instead. */
+@source "./*.tsx";
+@source "./create/*.tsx";
+@source "./docs/*.tsx";
+@source "./docs/[id]/*.tsx";
+@source "./settings/*.tsx";
+@source "./api/docs/*.ts";
+@source "./api/docs/[id]/*.ts";
+@source "./api/settings/*.ts";
+@source "./api/accounts/*.ts";
+@source "./api/proxy/*.ts";
+@source "./postman/*.tsx";
+@source "./api/google/auth/*.ts";
+@source "./api/google/callback/*.ts";
+@source "./api/google/create-doc/*.ts";
+@source "./api/google/status/*.ts";
+@source "./api/hubspot/form-fields/*.ts";
+@source "../components/layout/*.tsx";
+@source "../components/wizard/*.tsx";
+@source "../components/settings/*.tsx";
+@source "../components/docs/*.tsx";
+@source "../components/ui/*.tsx";
+@source "../components/ui/ApiTester.tsx";
+@source "../lib/*.ts";
+
+:root {
+  --background: #f9fafb;
+  --foreground: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
